@@ -230,7 +230,8 @@ class _ISiteUserInfo(metaclass=ABCMeta):
             if isinstance(self._ua, str):
                 req_headers.update({
                     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                    "User-Agent": f"{self._ua}"
+                    "User-Agent": f"{self._ua}",
+                    "referer": urljoin(self._base_url, self._user_detail_page)
                 })
             else:
                 req_headers.update(self._ua)
